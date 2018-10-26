@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Child Lock",
+  "description": "Helps you control access to urls from your browser.",
+  "version": "0.0.1",
+  "author": "Socx Solutions",
+  "browser_action": {
+    "default_icon": "lock.png",
+    "default_title": "Child Lock"
+  },
+  "chrome_url_overrides" : {
+    "newtab": "blocker.html"
+  },
+  "permissions": [
+    "https://ajax.googleapis.com/*",
+    "https://*.twitter.com/*",
+    "https://*.ycombinator.com/*",
+    "https://*.youtube.com/*",
+    "activeTab",
+    "storage",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "background": {
+    "scripts": ["childlock.js"],
+    "persistent": true
+  }
+ }

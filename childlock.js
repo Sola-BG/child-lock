@@ -1,0 +1,8 @@
+chrome.webRequest.onBeforeRequest.addListener(
+  function(details) {
+      console.log('In webRequest');
+      return {cancel: true};
+  }, {
+      urls: ["https://*.ycombinator.com/*", "https://*.youtube.com/*"]
+  }, ["blocking"]
+);
