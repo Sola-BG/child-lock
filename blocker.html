@@ -2,6 +2,31 @@
 <html>
   <head>
     <title>Child Lock</title>
+    <script>
+      function loadJSON (callback){
+          let xobj = new XMLHttpRequest();
+          xobj.overrideMimeType("application/json");
+          xobj.open('GET', 'my_data.json', true);
+          // Replace 'my_data' with the path to your file
+          xobj.onreadystatechange = () => {
+              if (xobj.readyState === 4 && xobj.status === "200") {
+                  // Required use of an anonymous callback 
+                  // as .open() will NOT return a value but simply returns undefined in asynchronous mode
+                  callback(xobj.responseText);
+              }
+          };
+          xobj.send(null);
+      }
+
+      function getUrls(){
+          loadJSON((response) => {
+              // Parse JSON string into object
+              let actual_JSON = JSON.parse(response);
+              console.log(actual_JSON);
+              return actual_JSON;
+          });
+      }
+    </script>
   </head>
   <body>
     <h1>Socx Site Blocker</h1>

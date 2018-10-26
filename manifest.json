@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Child Lock",
   "description": "Helps you control access to urls from your browser.",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "author": "Socx Solutions",
   "browser_action": {
     "default_icon": "lock.png",
@@ -12,10 +12,9 @@
     "newtab": "blocker.html"
   },
   "permissions": [
-    "https://ajax.googleapis.com/*",
-    "https://*.twitter.com/*",
-    "https://*.ycombinator.com/*",
-    "https://*.youtube.com/*",
+    "http://*/*",
+    "https://*/*",
+    "tabs",
     "activeTab",
     "storage",
     "webRequest",
@@ -24,5 +23,8 @@
   "background": {
     "scripts": ["childlock.js"],
     "persistent": true
-  }
+  },
+  "web_accessible_resources": [
+    "blocker.html"
+ ]
  }
